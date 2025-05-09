@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural Style Transfer</title>
+    <link rel = "stylesheet" href = "../static/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Neural Style Transfer - made by Binh Tom</h1>
+      <p>
+        Upload a content image and a style image to create a stylized output.
+      </p>
+
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="content_image">Content Image:</label>
+          <input
+            type="file"
+            id="content_image"
+            name="content_image"
+            accept=".jpg,.jpeg,.png"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="style_image">Style Image:</label>
+          <input
+            type="file"
+            id="style_image"
+            name="style_image"
+            accept=".jpg,.jpeg,.png"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="style_weight">Style Weight:</label>
+          <input
+            type="range"
+            id="style_weight"
+            name="style_weight"
+            min="100000"
+            max="10000000"
+            step="100000"
+            value="1000000"
+          />
+          <span id="style_weight_value">1000000</span>
+        </div>
+        <div class="form-group">
+          <label for="content_weight">Content Weight:</label>
+          <input
+            type="range"
+            id="content_weight"
+            name="content_weight"
+            min="1"
+            max="10"
+            step="1"
+            value="1"
+          />
+          <span id="content_weight_value">1</span>
+        </div>
+        <div class="form-group">
+          <label for="num_steps">Number of Steps:</label>
+          <input
+            type="range"
+            id="num_steps"
+            name="num_steps"
+            min="100"
+            max="500"
+            step="50"
+            value="300"
+          />
+          <span id="num_steps_value">300</span>
+        </div>
+        <button type="submit">Run Style Transfer</button>
+      </form>
+
+      {% if output_image %}
+      <h2>Result</h2>
+      <img
+        src="{{ output_image }}"
+        alt="Stylized Output"
+        class="output-image"
+      />
+      {% endif %}
+    </div>
+
+    <script>
+      // Cập nhật giá trị slider
+      document
+        .getElementById("style_weight")
+        .addEventListener("input", function () {
+          document.getElementById("style_weight_value").textContent =
+            this.value;
+        });
+      document
+        .getElementById("content_weight")
+        .addEventListener("input", function () {
+          document.getElementById("content_weight_value").textContent =
+            this.value;
+        });
+      document
+        .getElementById("num_steps")
+        .addEventListener("input", function () {
+          document.getElementById("num_steps_value").textContent = this.value;
+        });
+    </script>
+  </body>
+</html>
