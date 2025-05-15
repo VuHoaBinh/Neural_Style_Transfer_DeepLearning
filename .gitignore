@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.swp
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Saved model files (nếu bạn muốn không commit model lớn)
+# Nếu bạn muốn commit model, bỏ dòng dưới
+saved_models/
+
+# Frontend node_modules (nếu có)
+node_modules/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
